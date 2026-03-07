@@ -16,19 +16,19 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String studentFirstName;
-    private String studentLastName;
-    private int studentAge;
+    private String firstName;
+    private String lastName;
+    private int age;
 
-    public Student(String studentFirstName, String studentLastName, int studentAge) {
-        this.studentFirstName = studentFirstName;
-        this.studentLastName = studentLastName;
-        this.studentAge = studentAge;
+    public Student(String firstName, String lastName, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
 
     @ManyToMany
     @JoinTable(
-            name = "student_courses",
+            name = "student_course",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )

@@ -8,6 +8,8 @@ import az.sarkhan.course.course_management_project.service.IStudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/students")
 @RequiredArgsConstructor
@@ -30,6 +32,20 @@ public class StudentController {
         Student student = studentService.findStudentById(id);
 
         return studentMapper.toResponse(student);
+    }
+
+    @GetMapping
+    public List<StudentResponse> getAll() {
+
+        return studentService.getAllStudents()
+                .stream()
+                .map(studentMapper::toResponse)
+                .toList();
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        studentService.deleteStudent(id);
     }
 
 }

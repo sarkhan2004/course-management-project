@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class StudentRequest {
 
-    private String studentFirstName;
-    private String studentLastName;
-    private int studentAge;
+    private String firstName;
+    private String lastName;
+    private int age;
 }

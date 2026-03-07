@@ -8,9 +8,9 @@ import lombok.Data;
 public class StudentResponse {
 
     private Long id;
-    private String  studentFirstName;
-    private String studentLastName;
-    private int studentAge;
+    private String  firstName;
+    private String lastName;
+    private int age;
     private Set<String> courses;
 
 }
