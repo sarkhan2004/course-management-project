@@ -6,19 +6,17 @@ import az.sarkhan.course.course_management_project.exception.CourseNotFoundExcep
 import az.sarkhan.course.course_management_project.exception.StudentNotFoundException;
 import az.sarkhan.course.course_management_project.repository.CourseRepository;
 import az.sarkhan.course.course_management_project.repository.StudentRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class StudentService implements IStudentService {
     private final StudentRepository studentRepository;
     private final CourseRepository courseRepository;
 
-    public StudentService(StudentRepository studentRepository, CourseRepository courseRepository) {
-        this.studentRepository = studentRepository;
-        this.courseRepository = courseRepository;
-    }
 
     @Override
     public Student createStudent(Student student) {

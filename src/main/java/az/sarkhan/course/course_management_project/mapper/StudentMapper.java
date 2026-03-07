@@ -3,7 +3,6 @@ package az.sarkhan.course.course_management_project.mapper;
 import az.sarkhan.course.course_management_project.dto.student.StudentRequest;
 import az.sarkhan.course.course_management_project.dto.student.StudentResponse;
 import az.sarkhan.course.course_management_project.entity.Student;
-import az.sarkhan.course.course_management_project.repository.StudentRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
@@ -13,18 +12,18 @@ public class StudentMapper {
 
     public Student toEntity(StudentRequest request) {
         return new Student(
-                request.getStudentFirstName(),
-                request.getStudentLastName(),
-                request.getStudentAge()
+                request.getFirstName(),
+                request.getLastName(),
+                request.getAge()
         );
     }
 
     public StudentResponse toResponse(Student student) {
         StudentResponse response = new StudentResponse();
         response.setId(student.getId());
-        response.setStudentFirstName(student.getStudentFirstName());
-        response.setStudentLastName(student.getStudentLastName());
-        response.setStudentAge(student.getStudentAge());
+        response.setFirstName(student.getFirstName());
+        response.setLastName(student.getLastName());
+        response.setAge(student.getAge());
 
         //Set Course to Set String
         response.setCourses(

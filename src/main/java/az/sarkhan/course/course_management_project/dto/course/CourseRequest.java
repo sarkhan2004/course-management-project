@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class CourseRequest {
-    private String courseName;
-    private double coursePrice;
+    private String nameOfCourse;
+    private int price;
 }

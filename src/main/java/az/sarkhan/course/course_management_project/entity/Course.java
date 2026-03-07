@@ -1,22 +1,29 @@
 package az.sarkhan.course.course_management_project.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 
 import java.util.*;
 
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@RequiredArgsConstructor
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
+    @NonNull
     private String nameOfCourse;
-    private int coursePrice;
+
+    @NonNull
+    private int price;
 
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
+
 
     public void addStudent(Student student) {
         this.students.add(student);
